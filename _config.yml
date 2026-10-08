@@ -1,0 +1,24 @@
+# なぐりにき サポートサイト
+#
+# ★ アプリ名はここ1箇所にしか書かない。
+#   Phase 6 のうちに表示名が3度変わっている（要件定義書 9.3）。
+#   各ページでは {{ site.app_name }} を使うこと。
+#
+#   Jekyll は _config.yml の中から自分の変数を参照できないため、
+#   title: は設定しない。<title> は _layouts/default.html で組む。
+
+app_name:  なぐりにき
+developer: 米田康平
+contact:   y1da13ohei@gmail.com
+updated:   2026年10月8日
+
+# プロジェクトサイトなので URL に /scrawl-site が入る。
+# リンクは必ず relative_url を通すこと。素の /privacy/ は 404 になる。
+url:     https://y1da13ohei.github.io
+baseurl: /scrawl-site
+
+lang: ja
+
+# 公開しないもの
+exclude:
+  - README.md

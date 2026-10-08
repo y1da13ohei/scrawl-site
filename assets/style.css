@@ -1,0 +1,70 @@
+/* なぐりにき サポートサイト
+ *
+ * 色はアプリと揃える（要件定義書 6.3）。書体は揃えない。
+ * Zen Kurenaido は手書き風で、読む量の多いページには向かない。
+ *
+ * ダークモードには従う。
+ * アプリが白地固定なのは 3.3 の「ホワイトボードに殴り書き」が主題で、
+ * 地の色そのものが体験の一部だからである。
+ * このサイトに主題は無い。読む場所なので、読み手の設定に従う。
+ */
+
+:root {
+  --bg:    #FBFBF9;   /* アプリの地 */
+  --ink:   #1A1A1A;   /* アプリの文字 */
+  --faded: #8A8A85;   /* アプリの薄い文字 */
+  --rule:  #E6E6E2;
+}
+
+/* ダークでも「薄い文字」が薄く見えるよう、地と文字の間の位置を保つ。
+ * 明：地 98% → 文字 10% の間で、薄い文字は 55%（地から約 49%）。
+ * 暗：地 10% → 文字 93% の間で、同じ割合に置く。 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:    #1A1A18;
+    --ink:   #EDEDE9;
+    --faded: #8F8F89;
+    --rule:  #32322E;
+  }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+               "Noto Sans JP", sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0;
+  padding: 2.5rem 1.25rem 6rem;
+}
+
+main { max-width: 36rem; margin: 0 auto; }
+
+h1 { font-size: 1.5rem; line-height: 1.5; font-weight: 600; margin: 0 0 2.5rem; }
+h2 { font-size: 1.1rem; font-weight: 600; margin: 3rem 0 1rem; }
+h3 { font-size: 1rem;   font-weight: 600; margin: 2rem 0 0.8rem; }
+
+p, li { margin: 0 0 1.2rem; }
+ul { padding-left: 1.2em; }
+
+a { color: var(--ink); text-underline-offset: 0.2em; }
+a:hover { color: var(--faded); }
+
+/* 表は横に溢れたらそこだけスクロールさせる。body は横に動かさない */
+table { border-collapse: collapse; width: 100%; margin: 0 0 1.5rem;
+        display: block; overflow-x: auto; }
+th, td { border-bottom: 1px solid var(--rule);
+         padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
+th { font-weight: 600; white-space: nowrap; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0; }
+
+nav { margin-bottom: 3rem; font-size: 0.95rem; }
+nav a { margin-right: 1.5rem; display: inline-block; }
+
+footer { margin-top: 4rem; color: var(--faded); font-size: 0.9rem; }
+
+code { font-size: 0.95em; }

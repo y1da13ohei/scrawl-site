@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- アプリ名は site.app_name の1箇所から来る（_config.yml） -->
+<title>{% if page.title and page.title != "" %}{{ page.title }} — {% endif %}{{ site.app_name }}</title>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<main>
+  <nav>
+    <a href="{{ '/' | relative_url }}">{{ site.app_name }}</a>
+    <a href="{{ '/privacy/' | relative_url }}">プライバシーポリシー</a>
+    <a href="{{ '/support/' | relative_url }}">サポート</a>
+  </nav>
+
+  {{ content }}
+
+  <footer>
+    {{ site.developer }}<br>
+    最終更新: {{ site.updated }}
+  </footer>
+</main>
+</body>
+</html>
